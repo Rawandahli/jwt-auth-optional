@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
+const authController = require("./controllers/authController");
+app.use("/api/", authController);
+
 app.listen(port, function() {
   console.log("---------------------------------------");
   console.log("Express listening on localhost:" + port);
